@@ -5,10 +5,10 @@ services:
     - docker
 
 before_install:
-    - docker build -t someshprajapati/Multi-Container-Application-Production -f ./client/Dockerfile ./client
+    - docker build -t someshprajapati/multi-container-application-production -f ./client/Dockerfile ./client
 
 script:
-    - docker run -e CI=true someshprajapati/Multi-Container-Application-Production npm test
+    - docker run -e CI=true someshprajapati/multi-container-application-production npm test
 
 after_success:
     - docker build -t someshprajapati/multi-client ./client
