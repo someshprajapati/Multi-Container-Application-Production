@@ -1,6 +1,6 @@
 language: node_js
 node_js: 
-    - 8
+    - 8.4.0
 sudo: required
 
 services:
@@ -10,7 +10,7 @@ before_install:
     - docker build -t someshprajapati/Multi-Container-Application-Production -f ./client/Dockerfile ./client
 
 script:
-    - docker run -e CI=true someshprajapati/Multi-Container-Application-Production npm run test
+    - docker run -e CI=true someshprajapati/Multi-Container-Application-Production npm test
 
 after_success:
     - docker build -t someshprajapati/multi-client ./client
