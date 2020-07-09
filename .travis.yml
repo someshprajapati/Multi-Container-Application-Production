@@ -8,7 +8,7 @@ before_install:
     - docker build -t someshprajapati/multi-container-application-production -f ./client/Dockerfile ./client
 
 script:
-    - docker run  -e CI=true someshprajapati/multi-container-application-production echo somesh
+    - docker run  -e CI=true someshprajapati/multi-container-application-production npm run test -- --coverage
 
 after_success:
     - docker build -t someshprajapati/multi-client ./client
