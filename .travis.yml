@@ -7,9 +7,6 @@ services:
 before_install:
     - docker build -t someshprajapati/multi-container-application-production -f ./client/Dockerfile ./client
 
-script:
-    - docker run -e CI=true someshprajapati/multi-container-application-production npm test
-
 after_success:
     - docker build -t someshprajapati/multi-client ./client
     - docker build -t someshprajapati/multi-nginx ./nginx
