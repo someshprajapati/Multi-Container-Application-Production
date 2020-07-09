@@ -7,6 +7,9 @@ services:
 before_install:
     - docker build -t someshprajapati/multi-container-application-production -f ./client/Dockerfile ./client
 
+script:
+    - docker run stephengrider/react-test npm test -- --coverage
+
 after_success:
     - docker build -t someshprajapati/multi-client ./client
     - docker build -t someshprajapati/multi-nginx ./nginx
