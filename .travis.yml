@@ -1,14 +1,14 @@
-language: node_js
+language: generic
 sudo: required
 
 services:
     - docker
 
 before_install:
-    - docker build -t someshprajapati/multi-container-application-production -f ./client/Dockerfile ./client
+    - docker build -t someshprajapati/multi-container-application-production -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run  -e CI=true someshprajapati/multi-container-application-production npm run test -- --coverage
+    - docker run -e CI=true someshprajapati/multi-container-application-dev npm run test -- --coverage
 
 after_success:
     - docker build -t someshprajapati/multi-client ./client
