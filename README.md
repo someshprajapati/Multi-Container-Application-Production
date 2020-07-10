@@ -1,4 +1,6 @@
-# Build the React App using multi containers with the help of below tech stack:
+# Build the React App and Integrate with Travis-CI and push the images on Docker Hub.
+
+## Build the React App using multi containers with the help of below tech stack. 
 1. Postgres
 2. Redis
 3. Nginx
